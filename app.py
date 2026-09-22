@@ -47,15 +47,8 @@ BASE_DIR = os.path.dirname(
     os.path.abspath(__file__)
 )
 
-UPLOAD_FOLDER = os.path.join(
-    BASE_DIR,
-    "uploads"
-)
-
-REPORT_FOLDER = os.path.join(
-    BASE_DIR,
-    "reports"
-)
+UPLOAD_FOLDER = "/tmp/uploads"
+REPORT_FOLDER = "/tmp/reports"
 
 
 # Create folders if they don't exist
