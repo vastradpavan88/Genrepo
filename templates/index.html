@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Automated Email Report Generator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <div class="upload-card">
+
+
+        <h1>
+            Automated Email Report Generator
+        </h1>
+
+
+        <p class="subtitle">
+
+            Upload an Excel or CSV file
+            to generate an automated
+            dashboard and report.
+
+        </p>
+
+
+        <!-- Flash Messages -->
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="message">
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- Upload Form -->
+
+        <form
+            action="{{ url_for('generate') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+
+            <label for="file">
+
+                Select Excel or CSV File
+
+            </label>
+
+
+            <input
+                type="file"
+                id="file"
+                name="file"
+                accept=".csv,.xlsx"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-button"
+            >
+
+                Generate Report
+
+            </button>
+
+
+        </form>
+
+
+        <!-- Supported Files -->
+
+        <div class="info-box">
+
+
+            <h3>
+                Supported Files
+            </h3>
+
+
+            <p>
+                CSV (.csv)
+            </p>
+
+
+            <p>
+                Excel (.xlsx)
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<div class="email-status">
+
+    {% if email_sent %}
+
+        <h3>✅ Report Sent Successfully</h3>
+
+        <p>
+            The report was automatically sent to:
+        </p>
+
+        <strong>
+            {{ recipient_email }}
+        </strong>
+
+    {% else %}
+
+        <h3>Report Generated</h3>
+
+        <p>
+            Email has not been sent.
+        </p>
+
+    {% endif %}
+
+</div>
